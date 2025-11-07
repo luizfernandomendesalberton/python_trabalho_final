@@ -1,12 +1,12 @@
-# ============================================================
+
 #  Sistema de Biblioteca - Versão Premium by Luiz Mendes
-# ============================================================
+
 
 from datetime import datetime, timedelta
 
-# ------------------------------------------------------------
+
 #  Classes Principais
-# ------------------------------------------------------------
+
 class Livro:
     def __init__(self, titulo, autor, ano):
         self.titulo = titulo
@@ -44,16 +44,16 @@ class Emprestimo:
                 f"Devolução: {self.data_devolucao.strftime('%d/%m/%Y')} | {status}")
 
 
-# ------------------------------------------------------------
+
 #  Base de Dados em Memória
-# ------------------------------------------------------------
+
 livros = []
 usuarios = []
 emprestimos = []
 
-# ------------------------------------------------------------
+
 #  Funções do Sistema
-# ------------------------------------------------------------
+
 def cadastrar_livro():
     titulo = input(" Título do livro: ")
     autor = input(" Autor: ")
@@ -98,8 +98,8 @@ def remover_livro():
 
 
 def cadastrar_usuario():
-    nome = input("👤 Nome do usuário: ")
-    matricula = input("🎫 Matrícula: ")
+    nome = input(" Nome do usuário: ")
+    matricula = input(" Matrícula: ")
     usuarios.append(Usuario(nome, matricula))
     print(" Usuário cadastrado com sucesso!\n")
 
@@ -108,7 +108,7 @@ def listar_usuarios():
     if not usuarios:
         print(" Nenhum usuário cadastrado.\n")
         return
-    print("\n=== 👥 USUÁRIOS CADASTRADOS ===")
+    print("\n===  USUÁRIOS CADASTRADOS ===")
     for i, u in enumerate(usuarios, 1):
         print(f"{i}. {u}")
     print()
@@ -144,7 +144,7 @@ def devolver_livro():
     listar_usuarios()
     if not usuarios: return
     try:
-        idx_user = int(input("👤 Usuário que está devolvendo: ")) - 1
+        idx_user = int(input(" Usuário que está devolvendo: ")) - 1
         usuario = usuarios[idx_user]
     except (ValueError, IndexError):
         print(" Usuário inválido.\n")
@@ -172,7 +172,7 @@ def historico_usuario():
     listar_usuarios()
     if not usuarios: return
     try:
-        idx_user = int(input("👤 Escolha o número do usuário: ")) - 1
+        idx_user = int(input(" Escolha o número do usuário: ")) - 1
         usuario = usuarios[idx_user]
     except (ValueError, IndexError):
         print(" Usuário inválido.\n")
@@ -188,9 +188,9 @@ def historico_usuario():
     print()
 
 
-# ------------------------------------------------------------
+
 #  Menu Principal
-# ------------------------------------------------------------
+
 def menu():
     while True:
         print("""
@@ -225,9 +225,9 @@ def menu():
             print(" Opção inválida. Tente novamente.\n")
 
 
-# ------------------------------------------------------------
+
 #  Execução
-# ------------------------------------------------------------
+
 if __name__ == "__main__":
     print(" Bem-vindo ao Sistema de Biblioteca! ✨\n")
     menu()
