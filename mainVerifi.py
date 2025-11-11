@@ -1,6 +1,5 @@
 from datetime import datetime, timedelta
 
-# -------------------------
 # Classes Principais
 # -------------------------
 
@@ -53,7 +52,6 @@ class Emprestimo:
                 f"Empréstimo: {emprest} | Devolução: {devolucao} | {status}")
 
 
-# -------------------------
 # Base de Dados em Memória
 # -------------------------
 
@@ -62,8 +60,7 @@ usuarios: list[Usuario] = []
 emprestimos: list[Emprestimo] = []
 
 
-# -------------------------
-# Helpers de UX / Validação
+# Validações Gerais
 # -------------------------
 
 def pause():
@@ -80,7 +77,6 @@ def validar_indice(lista, indice):
         return None
 
 
-# -------------------------
 # Funções do Sistema
 # -------------------------
 
@@ -108,9 +104,7 @@ def listar_livros():
 
 def editar_livro():
     listar_livros()
-    if not livros:
-        pause()
-        return
+    if not livros: pause(); return
     try:
         indice = int(input("Número do livro para editar: ")) - 1
     except ValueError:
@@ -139,9 +133,7 @@ def editar_livro():
 
 def remover_livro():
     listar_livros()
-    if not livros:
-        pause()
-        return
+    if not livros: pause(); return
     try:
         indice = int(input("🗑 Número do livro para remover: ")) - 1
     except ValueError:
@@ -198,9 +190,7 @@ def listar_usuarios():
 
 def realizar_emprestimo():
     listar_usuarios()
-    if not usuarios:
-        pause()
-        return
+    if not usuarios: pause(); return
     try:
         idx_user = int(input("👤 Escolha o número do usuário: ")) - 1
     except ValueError:
@@ -215,9 +205,7 @@ def realizar_emprestimo():
         return
 
     listar_livros()
-    if not livros:
-        pause()
-        return
+    if not livros: pause(); return
     try:
         idx_livro = int(input("📚 Escolha o número do livro: ")) - 1
     except ValueError:
@@ -247,9 +235,7 @@ def realizar_emprestimo():
 
 def devolver_livro():
     listar_usuarios()
-    if not usuarios:
-        pause()
-        return
+    if not usuarios: pause(); return
     try:
         idx_user = int(input("Usuário que está devolvendo (número): ")) - 1
     except ValueError:
@@ -302,9 +288,7 @@ def devolver_livro():
 
 def historico_usuario():
     listar_usuarios()
-    if not usuarios:
-        pause()
-        return
+    if not usuarios: pause(); return
     try:
         idx_user = int(input("Escolha o número do usuário: ")) - 1
     except ValueError:
@@ -335,7 +319,6 @@ def historico_usuario():
     pause()
 
 
-# -------------------------
 # Menu Principal
 # -------------------------
 
@@ -374,7 +357,6 @@ def menu():
             pause()
 
 
-# -------------------------
 # Execução
 # -------------------------
 
