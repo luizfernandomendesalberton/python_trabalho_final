@@ -1,7 +1,3 @@
-
-#  Sistema de Biblioteca - Versão Premium by Luiz Mendes
-
-
 from datetime import datetime, timedelta
 
 
