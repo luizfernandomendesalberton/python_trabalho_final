@@ -352,32 +352,20 @@ def menu():
 7️⃣  Realizar empréstimo
 8️⃣  Devolver livro
 9️⃣  Ver histórico de usuário
-🅰️  Ver empréstimos (globais)
 0️⃣  Sair
 ============================================================
 """)
         opcao = input("Escolha uma opção: ").strip()
 
-        if opcao == "1":
-            cadastrar_livro()
-        elif opcao == "2":
-            listar_livros()
-            pause()
-        elif opcao == "3":
-            editar_livro()
-        elif opcao == "4":
-            remover_livro()
-        elif opcao == "5":
-            cadastrar_usuario()
-        elif opcao == "6":
-            listar_usuarios()
-            pause()
-        elif opcao == "7":
-            realizar_emprestimo()
-        elif opcao == "8":
-            devolver_livro()
-        elif opcao == "9":
-            historico_usuario()
+        if opcao == "1": cadastrar_livro()
+        elif opcao == "2": listar_livros(), pause()
+        elif opcao == "3": editar_livro()
+        elif opcao == "4": remover_livro()
+        elif opcao == "5": cadastrar_usuario()
+        elif opcao == "6": listar_usuarios(), pause()
+        elif opcao == "7": realizar_emprestimo()
+        elif opcao == "8": devolver_livro()
+        elif opcao == "9": historico_usuario()
         elif opcao == "0":
             print("Saindo do sistema... Até logo!")
             break
