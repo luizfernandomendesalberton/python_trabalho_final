@@ -46,10 +46,10 @@ class Usuario:
     def __init__(self, nome, matricula):
         self.nome = nome
         self.matricula = matricula
-        self.historico = []  # lista de objetos Emprestimo
+        self.historico = []  # Lista de empréstimos
 
     def __str__(self):
-        return f"👤 {self.nome} (Matrícula: {self.matricula})"
+        return f"{self.nome} (Matrícula: {self.matricula})"
 
 
 class Emprestimo:
@@ -145,8 +145,7 @@ def editar_livro():
         pause()
         return
 
-    novo_titulo = input(
-        f"Novo título ({livro.titulo}): ").strip() or livro.titulo
+    novo_titulo = input(f"Novo título ({livro.titulo}): ").strip() or livro.titulo
     novo_autor = input(f"Novo autor ({livro.autor}): ").strip() or livro.autor
     novo_ano = input(f"Novo ano ({livro.ano}): ").strip() or livro.ano
 
@@ -162,7 +161,7 @@ def remover_livro():
     listar_livros()
     if not livros: pause(); return
     try:
-        indice = int(input("🗑 Número do livro para remover: ")) - 1
+        indice = int(input("Número do livro para remover: ")) - 1
     except ValueError:
         print("Opção inválida.")
         pause()
@@ -175,7 +174,7 @@ def remover_livro():
         return
 
     if not livro.disponivel:
-        print("❌ Este livro está emprestado e não pode ser removido.")
+        print("Este livro está emprestado e não pode ser removido.")
         pause()
         return
 
@@ -219,7 +218,7 @@ def realizar_emprestimo():
     listar_usuarios()
     if not usuarios: pause(); return
     try:
-        idx_user = int(input("👤 Escolha o número do usuário: ")) - 1
+        idx_user = int(input("Escolha o número do usuário: ")) - 1
     except ValueError:
         print("Usuário inválido.")
         pause()
@@ -284,7 +283,7 @@ def devolver_livro():
 
     print("\n=== EMPRÉSTIMOS ATIVOS ===")
     for i, e in enumerate(emprestimos_ativos, 1):
-        atraso = " ⏰ ATRASADO" if e.esta_atrasado() else ""
+        atraso = "ATRASADO" if e.esta_atrasado() else ""
         print(f"{i}. {e} {atraso}")
 
     try:
@@ -336,7 +335,7 @@ def historico_usuario():
 
     print(f"\n=== HISTÓRICO DE {usuario.nome} ===")
     for h in usuario.historico:
-        atraso = " ⏰ ATRASADO" if h.esta_atrasado() else ""
+        atraso = "ATRASADO" if h.esta_atrasado() else ""
         if h.devolvido:
             devolv_str = f"Devolvido em {h.data_devolvido.strftime('%d/%m/%Y')}"
         else:
